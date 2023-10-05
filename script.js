@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             total += value * parseInt(inputField.id.slice(4));
         });
 
-        totalElement.textContent = "Total money: $" + total;
+        totalElement.textContent = "ตอนนี้มีตังในเก๊ะ: $" + total;
     }
 
     function clearInputs() {
