@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         inputFields.forEach(function(inputField) {
             var value = parseInt(inputField.value) || 0;
             total += value * parseInt(inputField.id.slice(4));
+            
         });
 
         totalElement.textContent = "ตอนนี้มีตังในเก๊ะ: $" + total;
@@ -26,7 +27,18 @@ document.addEventListener("DOMContentLoaded", function() {
         totalElement.textContent = "ตอนนี้มีตังในเก๊ะ: $0";
     }
 
-    clearButton.addEventListener("click", clearInputs);
+    clearButton.addEventListener("click", function() {
+        clearInputs();
+        resetRowColors(); // Call the function to reset row colors
+    });
+
+    function resetRowColors() {
+        inputFields.forEach(function(inputField) {
+            var row = inputField.parentElement.parentElement;
+            row.classList.remove("error-row");
+            row.classList.remove("success-row");
+        });
+    }
 
     function performSubtraction() {
         var result = 0;
@@ -45,7 +57,60 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     inputFields.forEach(function(inputField) {
-        inputField.addEventListener("input", updateTotal);
+        inputField.addEventListener("input", function() {
+            var row = this.parentElement.parentElement; // Get the parent row
+            var value = parseInt(this.value) || 0;
+            var expectedQuantity = parseInt(row.children[2].textContent);
+
+            if (value < expectedQuantity) {
+                row.classList.add("error-row");
+                row.classList.remove("success-row");
+            } else {
+                row.classList.add("success-row");
+                row.classList.remove("error-row");
+            }
+
+            updateTotal(); // Update total after input change
+        });
+        
     });
+
+    /* date drop down and page number*/
+
+    const daysDropdown = document.getElementById("days");
+    const monthsDropdown = document.getElementById("months");
+    const yearsDropdown = document.getElementById("years");
+    const pageLinks = document.querySelectorAll(".page-link");
+
+    // Populate dropdowns with options (days, months, years)
+    for (let i = 1; i <= 31; i++) {
+        daysDropdown.options.add(new Option(i, i));
+    }
+
+    const months = [
+        "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม",
+         "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+    ];
+
+    for (let i = 0; i < months.length; i++) {
+        monthsDropdown.options.add(new Option(months[i], i + 1));
+    }
+
+    const currentYear = new Date().getFullYear();
+    for (let i = currentYear + 543; i <= currentYear + 548; i++) {
+        yearsDropdown.options.add(new Option(i, i));
+    }
+
+    // Page navigation functionality
+    pageLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            const pageNumber = this.getAttribute("data-page");
+            // You can implement logic here to switch content based on the page number
+            console.log("Navigating to Page " + pageNumber);
+        });
+    });
+
+    /*error-success row */
+    
 
 });
