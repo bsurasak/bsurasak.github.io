@@ -118,3 +118,29 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+/*drop down and page number */
+.date-dropdowns {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.page-link {
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 20px;
+    color: blue;
+    text-decoration: underline;
+}
+
+.error-row {
+    background-color: #FFC0CB; /* Light red */
+}
+
+.success-row {
+    background-color: #98FB98; /* Light green */
+}
