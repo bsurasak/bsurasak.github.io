@@ -47,9 +47,10 @@ button {
     border: none;
     padding: 20px 40px;
     font-size: 20px;
+    margin: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -77,13 +78,17 @@ button:hover {
     color: #333;
 }
 
+label[for="input1"] {
+    font-size: 32px !important; /* Adjust the font size to your preference */
+}
 .calculation input[type="number"] {
-    width: 100%;
+    width: calc(100% - 20px);
     font-size: 18px;
     padding: 10px;
     margin-bottom: 15px;
     border: 3px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; 
 }
 
 .calculation button {
@@ -125,6 +130,13 @@ input[type="number"] {
     font-size: 20px;
 }
 
+.date-dropdowns select {
+    padding: 7px; /* Adjust the padding to increase the height of the dropdown box */
+    font-size: 24px; /* Set the font size of the dropdown options */
+    width: 160px; /* Set the width of the dropdown box */
+    border-radius: 5px; /* Add rounded corners to the dropdown box */
+}
+
 .pagination {
     margin-top: 20px;
 }
@@ -144,3 +156,10 @@ input[type="number"] {
 .success-row {
     background-color: #98FB98; /* Light green */
 }
+
+
+
+
+
+
+
