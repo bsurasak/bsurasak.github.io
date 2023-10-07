@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function clearInputs() {
         inputFields.forEach(function(inputField) {
-            inputField.value = "";
+            inputField.value = ""
         });
         totalElement.textContent = "ตอนนี้มีตังในเก๊ะ: $0";
     }
@@ -43,7 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
     function performSubtraction() {
         var result = 0;
         var subtractValue = parseInt(subtractNumber.value) || 0;
-            result = subtractValue - 3300;
+
+
+        var input2 = parseInt(document.getElementById("input2").value) || 0;
+        var input3 = parseInt(document.getElementById("input3").value) || 0;
+
+
+            result = subtractValue - 3300 - input2 - input3;
         calculationResult.textContent = result;
     }
 
@@ -74,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         
     });
+
+
 
     /* date drop down and page number*/
 
@@ -109,8 +117,5 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Navigating to Page " + pageNumber);
         });
     });
-
-    /*error-success row */
-    
 
 });
