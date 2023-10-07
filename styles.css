@@ -132,8 +132,15 @@ input[type="number"] {
 
 .date-dropdowns select {
     padding: 7px; /* Adjust the padding to increase the height of the dropdown box */
-    font-size: 24px; /* Set the font size of the dropdown options */
-    width: 160px; /* Set the width of the dropdown box */
+    font-size: 18px; /* Set the font size of the dropdown options */
+    width: 100px; /* Set the width of the dropdown box */
+    border-radius: 5px; /* Add rounded corners to the dropdown box */
+}
+
+#days {
+    padding: 7px; /* Adjust the padding to increase the height of the dropdown box */
+    font-size: 18px; /* Set the font size of the dropdown options */
+    width: 60px; /* Set the width of the dropdown box */
     border-radius: 5px; /* Add rounded corners to the dropdown box */
 }
 
