@@ -92,6 +92,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const yearsDropdown = document.getElementById("years");
     const pageLinks = document.querySelectorAll(".page-link");
 
+
+    const years = [
+        "จันทร์","อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์"
+    ];
+    for (let i = 0; i < years.length; i++) {
+        yearsDropdown.options.add(new Option(years[i], i + 1));
+    }
+
     // Populate dropdowns with options (days, months, years)
     for (let i = 1; i <= 31; i++) {
         daysDropdown.options.add(new Option(i, i));
@@ -106,10 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
         monthsDropdown.options.add(new Option(months[i], i + 1));
     }
 
-    const currentYear = new Date().getFullYear();
-    for (let i = currentYear + 543; i <= currentYear + 548; i++) {
-        yearsDropdown.options.add(new Option(i, i));
-    }
+
 
     // Page navigation functionality
     pageLinks.forEach(link => {
