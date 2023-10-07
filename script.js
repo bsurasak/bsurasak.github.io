@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     clearCalculationButton.addEventListener("click", function() {
         subtractNumber.value = "";
+        input2.value = "";
+        input3.value = "";
         calculationResult.textContent = 0;
     });
 
