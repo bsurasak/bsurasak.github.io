@@ -145,16 +145,32 @@ input[type="number"] {
 }
 
 .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 
 .page-link {
-    cursor: pointer;
     margin: 0 10px;
-    font-size: 20px;
-    color: blue;
-    text-decoration: underline;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: blue; /* Set the background color to blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.page-link:hover {
+    background-color: #0066cc; /* Change the background color on hover */
+    transform: translateY(-2px);
+}
+
+
+
+
+
 
 .error-row {
     background-color: #FFC0CB; /* Light red */
@@ -170,3 +186,24 @@ input[type="number"] {
 
 
 
+/* page 2 */
+
+
+.page2-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.input-field-page2 {
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+}
+
+#total-page2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
