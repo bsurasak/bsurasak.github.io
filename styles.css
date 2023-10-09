@@ -111,7 +111,10 @@ label[for="input1"] {
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
+    background-color: yellow;
+    color: black; /* or any other color you prefer for the text */
 }
+
 
 /* Additional styling for a better user experience */
 input[type="number"]::-webkit-inner-spin-button,
@@ -206,4 +209,5 @@ input[type="number"] {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
+
 }
