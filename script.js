@@ -40,6 +40,50 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+
+    // Page 2 declarations
+var inputFieldsPage2 = document.querySelectorAll(".input-field-page2");
+var totalElementPage2 = document.getElementById("total-page2");
+var clearButtonPage2 = document.getElementById("clearButton-page2");
+
+// Functions for Page 2
+function updateTotalPage2() {
+    var total2 = 0;
+    inputFieldsPage2.forEach(function(inputFieldPage2) {
+        var value = parseInt(inputFieldPage2.value) || 0;
+        total2 += value * parseInt(inputFieldPage2.id.slice(4));
+    });
+
+    totalElementPage2.textContent = "ตอนนี้มีตังในเก๊ะ: $" + total2;
+}
+
+// Add event listeners to input fields for automatic calculation
+inputFieldsPage2.forEach(function(inputFieldPage2) {
+    inputFieldPage2.addEventListener("input", updateTotalPage2);
+});
+
+function clearInputsPage2() {
+    inputFieldsPage2.forEach(function(inputFieldPage2) {
+        inputFieldPage2.value = "";
+    });
+    totalElementPage2.textContent = "ตอนนี้มีตังในเก๊ะ: $0";
+}
+
+clearButtonPage2.addEventListener("click", function() {
+    clearInputsPage2();
+    resetRowColorsPage2(); // Call the function to reset row colors for Page 2
+});
+function resetRowColorsPage2() {
+    inputFields.forEach(function(inputField) {
+        var row = inputField.parentElement.parentElement;
+        row.classList.remove("error-row");
+        row.classList.remove("success-row");
+    });
+}
+
+
+
+
     function performSubtraction() {
         var result = 0;
         var subtractValue = parseInt(subtractNumber.value) || 0;
@@ -51,6 +95,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             result = subtractValue - 3300 - input2 - input3;
         calculationResult.textContent = result;
+
+        var calculationResultPage2 = document.getElementById("calculationResultPage2");
+        calculationResultPage2.textContent = result;
     }
 
 
@@ -115,12 +162,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
+    const page1Content = document.querySelector('.container');
+    const page2Content = document.querySelector('.page2-container');
+
 
     // Page navigation functionality
     pageLinks.forEach(link => {
         link.addEventListener("click", function () {
             const pageNumber = this.getAttribute("data-page");
-            // You can implement logic here to switch content based on the page number
+
+            if (pageNumber === "1") {
+                page1Content.style.display = "block";
+                page2Content.style.display = "none";
+            } else if (pageNumber === "2") {
+                page1Content.style.display = "none";
+                page2Content.style.display = "block";
+            }
+
             console.log("Navigating to Page " + pageNumber);
         });
     });
