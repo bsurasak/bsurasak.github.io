@@ -96,15 +96,83 @@
 
             <button id="calculateButton">หัก</button>
             <button id="clearCalculationButton">เคลียร์</button>
-            <div class="result">ตังในถุงพลาสติดวันนี้: $<span id="calculationResult">0</span></div>
+            <div class="result">ตังในถุงพลาสติกวันนี้: $<span id="calculationResult">0</span></div>
         </div>
 
         <!-- Pagination for first and second page -->
         <div class="pagination">
-            <span class="page-link" data-page="1">Page 1</span>
-            <span class="page-link" data-page="2">Page 2</span>
+            <span class="page-link" data-page="1">หน้า 1</span>
+            <span class="page-link" data-page="2">หน้า 2</span>
         </div>
 
+    </div>
+
+    <div class="page2-container" style="display: none;">
+        <h2>1. หยิบเงินทอนลงเก๊ะให้เรียบร้อย</h2>
+        <h3>2. ต่อไปนับตังที่จะเอาไปใส่ถุงพลาสติก</h3>
+        <!-- Add more content as needed -->
+        <div class="result">ต้องมีตังในถุงพลาสติกวันนี้: $<span id="calculationResultPage2">0</span></div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>ธนบัตร และ เหรียญ</th>
+                    <th>จำนวน</th>
+                    <th>ตังทอนควรจะมี</th>
+                </tr>
+                <tr>
+                    <td>1000</td>
+                    <td><input type="number" id="bill1000s" class="input-field-page2"></td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td><input type="number" id="bill500s" class="input-field-page2"></td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td><input type="number" id="bill100s" class="input-field-page2"></td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td><input type="number" id="bill50s" class="input-field-page2"></td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><input type="number" id="bill20s" class="input-field-page2"></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><input type="number" id="bill10s" class="input-field-page2"></td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="number" id="bill5s" class="input-field-page2"></td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="number" id="bill2s" class="input-field-page2"></td>
+                    <td>---50---</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="number" id="bill1s" class="input-field-page2"></td>
+                    <td>---50---</td>
+                </tr>
+            </table>
+            <div id="total-page2">ตอนนี้มีตังในถุงพลาสติก: $0</div>
+            <button id="clearButton-page2">ล้าง</button>
+
+        </div>
+        <div class="pagination">
+            <span class="page-link" data-page="1">หน้า 1</span>
+            <span class="page-link" data-page="2">หน้า 2</span>
+        </div>
     </div>
 
     <script src="script.js"></script>
