@@ -26,60 +26,102 @@
                 </div>
             <h4> *นับแล้วเอาทั้งหมดไปวางไว้บนเก๊ะ ห้ามใส่ช่องตังทอนก่อน*</h4>
         <div class="table-container">
-            <table>
+            <table id="initialTable">
                 <tr>
-                    <th>ธนบัตร และ เหรียญ</th>
+                    <th>ธนบัตร</th>
                     <th>จำนวน</th>
-                    <th>ตังทอนควรจะมี</th>
+                    <th>ควรจะมี</th>
+                    <th>แลกเงิน</th>
                 </tr>
                 <tr>
                     <td>1000</td>
                     <td><input type="number" id="bill1000s" class="input-field"></td>
                     <td>0</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>500</td>
-                    <td><input type="number" id="bill500s" class="input-field"></td>
+                    <td><input type="number" id="bill500s" class="input-field" oninput="cloneRow()"></td>
                     <td>2</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>100</td>
-                    <td><input type="number" id="bill100s" class="input-field"></td>
+                    <td><input type="number" id="bill100s" class="input-field" oninput="cloneRow()"></td>
                     <td>10</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>50</td>
-                    <td><input type="number" id="bill50s" class="input-field"></td>
+                    <td><input type="number" id="bill50s" class="input-field" oninput="cloneRow()"></td>
                     <td>10</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>20</td>
-                    <td><input type="number" id="bill20s" class="input-field"></td>
+                    <td><input type="number" id="bill20s" class="input-field" oninput="cloneRow()"></td>
                     <td>25</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>10</td>
-                    <td><input type="number" id="bill10s" class="input-field"></td>
+                    <td><input type="number" id="bill10s" class="input-field" oninput="cloneRow()"></td>
                     <td>15</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td><input type="number" id="bill5s" class="input-field"></td>
+                    <td><input type="number" id="bill5s" class="input-field" oninput="cloneRow()"></td>
                     <td>20</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><input type="number" id="bill2s" class="input-field"></td>
-                    <td>---50---</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td><input type="number" id="bill1s" class="input-field"></td>
-                    <td>---50---</td>
+                    <td><input type="number" id="bill1s" class="input-field" oninput="cloneRow()"></td>
+                    <td>50</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <th>แลกเหรียญ</th>
+                    <th></th>
                 </tr>
             </table>
             <div id="total">ตอนนี้มีตังในเก๊ะ: $0</div>
             <button id="clearButton">ล้าง</button>
+
+
+
+
+            <div class="repeating-table">
+                <table id="repeatingTable">
+                    <tr>
+                        <th>เหรียญ</th>
+                        <th>ขาดอยู่</th>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>เหรียญขาด</th>
+                        <th></th>
+                    </tr>
+                    <!-- Repeating table rows will be added here dynamically -->
+                </table>
+            </div>
+
+
+
 
         </div>
         <div class="calculation">
