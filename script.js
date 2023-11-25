@@ -9,6 +9,48 @@ document.addEventListener("DOMContentLoaded", function() {
     var calculateButton = document.getElementById("calculateButton");
     var clearCalculationButton = document.getElementById("clearCalculationButton");
 
+
+    function cloneRow() {
+        var initialTable = document.getElementById('initialTable');
+        var repeatingTable = document.getElementById('repeatingTable');
+        var newRow = repeatingTable.insertRow(repeatingTable.rows.length);
+
+        // Clone values from specific cells (e.g., cells for 1000, 500, and 100 bills)
+        var bill10sValue = document.getElementById('bill10s').value;
+        var bill5sValue = document.getElementById('bill5s').value;
+        var bill1sValue = document.getElementById('bill1s').value;
+        var bill1510sValue = 0;
+
+        // Insert the cloned values into the new row
+        //newRow.insertCell(0).innerHTML = '1000';
+        //newRow.insertCell(1).innerHTML = bill1000sValue;
+        //newRow.insertCell(2).innerHTML = '---'; // You can replace this with the appropriate value if needed
+        if (bill10sValue < 15) {
+            repeatingTable.rows[1].cells[1].innerHTML = (15 - bill10sValue) * 10;
+            bill1510sValue = bill1510sValue + (15 - bill10sValue) * 10;
+        } else {
+            repeatingTable.rows[1].cells[1].innerHTML = 0;
+        }
+        if (bill5sValue < 20) {
+            repeatingTable.rows[2].cells[1].innerHTML = (20 - bill5sValue) * 5;
+            bill1510sValue = bill1510sValue + (20 - bill5sValue) * 5;
+        } else {
+            repeatingTable.rows[2].cells[1].innerHTML = 0;
+        }
+        if (bill10sValue < 50) {
+            repeatingTable.rows[3].cells[1].innerHTML = (50 - bill1sValue) * 1;
+            bill1510sValue = bill1510sValue + (50 - bill1sValue) * 1;
+        } else {
+            repeatingTable.rows[3].cells[1].innerHTML = 0;
+        }
+
+        repeatingTable.rows[4].cells[1].innerHTML = bill1510sValue;
+        initialTable.rows[9].cells[3].innerHTML = bill1510sValue;
+        var targetCell = repeatingTable.rows[4].cells[1];
+        targetCell.style.backgroundColor = "#FFC0CB";
+    }
+
+
     function updateTotal() {
         var total = 0;
         inputFields.forEach(function(inputField) {
@@ -18,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         totalElement.textContent = "ตอนนี้มีตังในเก๊ะ: $" + total;
+        cloneRow();
     }
 
     function clearInputs() {
@@ -114,20 +157,27 @@ function resetRowColorsPage2() {
     inputFields.forEach(function(inputField) {
         inputField.addEventListener("input", function() {
             var row = this.parentElement.parentElement; // Get the parent row
-            var value = parseInt(this.value) || 0;
+            var inputValue = parseInt(this.value) || 0;
+            var billValue = parseInt(row.children[0].textContent) || 1; // Default to 1 if not a valid number
             var expectedQuantity = parseInt(row.children[2].textContent);
-
-            if (value < expectedQuantity) {
+            // Calculate the total value by multiplying the input value with the bill value
+            var totalValue = inputValue * billValue;
+    
+            // Display the total value in the fourth cell
+            row.children[3].textContent = totalValue - (expectedQuantity * billValue);
+    
+            // Update styling based on comparison with expected quantity
+            if (inputValue < expectedQuantity) {
                 row.classList.add("error-row");
                 row.classList.remove("success-row");
             } else {
                 row.classList.add("success-row");
                 row.classList.remove("error-row");
             }
-
-            updateTotal(); // Update total after input change
+    
+            // Update total after input change
+            updateTotal();
         });
-        
     });
 
 
